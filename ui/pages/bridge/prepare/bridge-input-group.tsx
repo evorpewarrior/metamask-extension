@@ -38,7 +38,6 @@ import {
 } from '../../../ducks/bridge/selectors';
 import { shortenString } from '../../../helpers/utils/util';
 import { useCopyToClipboard } from '../../../hooks/useCopyToClipboard';
-import { MINUTE } from '../../../../shared/constants/time';
 import { getIntlLocale } from '../../../ducks/locale/locale';
 import {
   MULTICHAIN_NETWORK_BLOCK_EXPLORER_FORMAT_URLS_MAP,
@@ -98,7 +97,8 @@ export const BridgeInputGroup = ({
   const currentChainId = useSelector(getMultichainCurrentChainId);
   const selectedChainId = networkProps?.network?.chainId ?? currentChainId;
 
-  const [, handleCopy] = useCopyToClipboard(MINUTE);
+  // useCopyToClipboard analysis: Copies a public address
+  const [, handleCopy] = useCopyToClipboard(-1);
 
   const inputRef = useRef<HTMLInputElement | null>(null);
 

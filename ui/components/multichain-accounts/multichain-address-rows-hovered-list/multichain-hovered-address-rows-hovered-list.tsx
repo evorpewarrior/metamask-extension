@@ -79,7 +79,9 @@ export const MultichainHoveredAddressRowsList = ({
   onViewAllClick,
 }: MultichainAddressRowsListProps) => {
   const t = useI18nContext();
-  const [, handleCopy] = useCopyToClipboard();
+
+  // useCopyToClipboard analysis: Copies one of your public addresses
+  const [, handleCopy] = useCopyToClipboard(-1);
   const navigate = useNavigate();
   const [isHoverOpen, setIsHoverOpen] = useState(false);
   const [referenceElement, setReferenceElement] = useState<HTMLElement | null>(
