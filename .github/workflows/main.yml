@@ -614,6 +614,7 @@ jobs:
     needs:
       - get-requirements
       - lint-workflows
+      - test-lint
       - repository-health-checks
       - test-storybook
       - validate-lavamoat-policies
@@ -629,6 +630,7 @@ jobs:
       - build-test-flask-mv2-browserify
       - build-test-webpack
       - build-test-mv2-webpack
+      - run-tests
       - build-storybook
       - build-ts-migration-dashboard
       - build-source-map-explorer
